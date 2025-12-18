@@ -18,7 +18,7 @@
                         <div class="ml-10 flex items-baseline space-x-4">
                             {{-- @auth --}}
                                 <x-navbar href="/" :active="request()->is('/')"> Home</x-navbar>
-                                <x-navbar href="/tasks" :active="request()->is('tasks')"> Task</x-navbar>
+                                <x-navbar href="/grade-levels" :active="request()->is('grade-levels')"> Grade Levels </x-navbar>
                             {{-- @endauth --}}
                         </div>
                     </div>

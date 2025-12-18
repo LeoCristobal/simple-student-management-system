@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,14 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'teacher_id' => Teacher::inRandomOrder()->first()->id,
+            'first_name' => fake()->firstName(),
+            'middle_initial' => strtoupper(fake()->randomLetter()). '.',
+            'last_name' => fake()->lastName(),
+            'gender' => fake()->randomElement(['Male', 'Female', 'Other']),
+            'email_address' => fake()->safeEmail(),
+            'address' => fake()->address(),
+            'contact' => fake()->phoneNumber()
         ];
     }
 }

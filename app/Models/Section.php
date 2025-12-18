@@ -9,4 +9,9 @@ class Section extends Model
 {
     /** @use HasFactory<\Database\Factories\SectionFactory> */
     use HasFactory;
+
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
 }
