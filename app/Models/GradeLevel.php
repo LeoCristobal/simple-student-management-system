@@ -9,4 +9,9 @@ class GradeLevel extends Model
 {
     /** @use HasFactory<\Database\Factories\GradeLevelFactory> */
     use HasFactory;
+
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
+    }
 }

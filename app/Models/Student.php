@@ -9,4 +9,9 @@ class Student extends Model
 {
     /** @use HasFactory<\Database\Factories\StudentFactory> */
     use HasFactory;
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 }

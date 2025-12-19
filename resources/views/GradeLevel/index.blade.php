@@ -6,7 +6,6 @@
             <a href="/{{ $grade_level->grade_levels }}/sections"
                 class="flex items-center justify-between px-4 py-6 text-l font-semibold border border-gray-200 rounded-lg hover:text-blue-500 bg-gray-200 hover:bg-gray-300">
                 <div>
-
                     {{-- Grade Level details --}}
                     <label>
                         <div>

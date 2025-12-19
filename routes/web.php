@@ -9,6 +9,8 @@ Route::get('/', function () {
 });
 
 Route::get('/grade-levels', GradeLevelController::class);
+
 Route::get('/{grade_level:grade_levels}/sections', [SectionController::class, 'index']);
+Route::get('/section/{section:sections}', [SectionController::class, 'show']);
 
 // Route::controller()
