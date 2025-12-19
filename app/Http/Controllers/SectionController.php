@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddStudentRequest;
 use App\Models\GradeLevel;
 use App\Models\Section;
 use App\Models\Student;
@@ -28,13 +29,26 @@ class SectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('Sections.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {}
+    public function store(AddStudentRequest $request)
+    {
+        $validated = $request->validated();
+
+        Student::create([
+            'teacher_id' => $validated['section_id'],
+            'first_name' => $validated['first_name'],
+            'middle_initial' => $validated['middle_initial'],
+            'last_name' => $validated['last_name'],
+            'gender' => 'N/A'
+        ]);
+
+        return redirect('/section/{section:sections}');
+    }
 
     /**
      * Display the specified resource.
@@ -43,12 +57,15 @@ class SectionController extends Controller
     public function show(Section $section)
     {
         // Load teacher and students properly
+        $grade_level = GradeLevel::with('sections')->get();
+
         $section->load('teacher.students');
         $totalStudents = $section->teacher?->students()->count() ?? 0;
 
         return view('Sections.show', [
             'section' => $section,
-            'total' => $totalStudents
+            'total' => $totalStudents,
+            'grade_level' => $grade_level
         ]);
     }
 

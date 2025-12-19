@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('middle_initial');
             $table->string('last_name');
-            $table->string('gender')->value('Male', 'Female', 'Other');
+            $table->string('gender')->value('Male', 'Female', 'Other')->default('none');
             $table->string('email_address')->unique();
             $table->string('address');
             $table->string('contact');

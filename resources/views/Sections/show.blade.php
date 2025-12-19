@@ -1,6 +1,13 @@
 <x-layout>
-    <x-slot:heading> Teacher: {{ $section->teacher->name ?? 'asdfasf' }} </x-slot:heading>
-    
+    <div class="items-end">
+    <x-slot:heading >
+        Teacher: {{ $section->teacher->name ?? 'No Teacher Assigned' }}
+            @auth
+                <x-button href="/section/{{ $section->sections }}/add-student"> Add Student</x-button>
+            @endauth
+        </x-slot:heading>
+    </div>
+
     <h2 class="font-bold mb-3 text-xl">Total Students: {{ $total }}</h2>
 
     @foreach ($section->teacher->students as $student)
