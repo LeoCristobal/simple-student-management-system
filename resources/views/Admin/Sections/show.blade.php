@@ -1,6 +1,6 @@
 <x-layout>
-    <x-slot:heading> Teacher: {{ $section->teacher->name ?? 'asdfasf' }} </x-slot:heading>
-    
+    <x-slot:heading> Teacher: {{ $section->teacher?->name ?? 'No Teacher Assigned' }} </x-slot:heading>
+
     <h2 class="font-bold mb-3 text-xl">Total Students: {{ $total }}</h2>
 
     @foreach ($section->teacher->students as $student)

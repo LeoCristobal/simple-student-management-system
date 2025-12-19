@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:heading>  {{ $grade_level->grade_levels}} </x-slot:heading>
+    <x-slot:heading> Tasks </x-slot:heading>
 
     <div class="space-y-4">
         @foreach ($grade_level->sections as $section)

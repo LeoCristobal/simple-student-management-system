@@ -16,26 +16,26 @@
                 <div class="flex items-center">
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-                            {{-- @auth --}}
+                            @auth
                                 <x-navbar href="/" :active="request()->is('/')"> Home</x-navbar>
                                 <x-navbar href="/grade-levels" :active="request()->is('grade-levels')"> Grade Levels </x-navbar>
-                            {{-- @endauth --}}
+                            @endauth
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        {{-- @guest --}}
+                        @guest
                             <x-navbar href="/register" :active="request()->is('register')"> Register</x-navbar>
                             <x-navbar href="/login" :active="request()->is('login')"> Login</x-navbar>
-                        {{-- @endguest --}}
+                        @endguest
 
-                        {{-- @auth --}}
+                        @auth
                             <form method="POST" action="/logout">
                                 @csrf
                                 <x-form-button href="/login" :active="request()->is('logout')"> Logout</x-form-button>
                             </form>
-                        {{-- @endauth --}}
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -44,9 +44,9 @@
     <header class="relative bg-white shadow">
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
             <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
-            {{-- @auth --}}
-                {{-- <x-button href="/tasks/create"> Create Task</x-button> --}}
-            {{-- @endauth --}}
+            @auth
+                <x-button href="/tasks/create"> Create Task</x-button>
+            @endauth
         </div>
     </header>
     <main>
